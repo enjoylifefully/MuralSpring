@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mural</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<main class="page">
+		<section class="hero">
+			<h1>Mural</h1>
+			<p>um mural simples para publicar e ler mensagens.</p>
+			<ul class="nav-links">
+				<li><a th:href="@{/logout}">logout</a></li>
+				<li><a th:href="@{/mensagens}">ver mensagens</a></li>
+				<li><a th:href="@{/postar}">postar uma nova mensagem</a></li>
+			</ul>
+		</section>
+	</main>
+</body>
+</html>

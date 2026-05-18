@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mural</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<main class="page">
+		<section class="hero">
+			<h1>envie uma mensagem para o mural</h1>
+			<ul class="nav-links">
+				<li><a th:href="@{/}">home</a></li>
+				<li><a th:href="@{/mensagens}">ver mensagens</a></li>
+			</ul>
+		</section>
+
+		<section class="panel">
+			<form th:action="@{/postar}" th:object="${sendMessageForm}" method="post">
+				<label for="from">enviado por:</label>
+				<input id="from" type="text" th:field="*{from}">
+				<div th:if="${#fields.hasErrors('from')}" th:errors="*{from}" class="error-message"></div>
+
+				<label for="to">enviado para:</label>
+				<input id="to" type="text" th:field="*{to}">
+				<div th:if="${#fields.hasErrors('to')}" th:errors="*{to}" class="error-message"></div>
+
+				<label for="message">mensagem:</label>
+				<textarea id="message" th:field="*{message}"></textarea>
+				<div th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error-message"></div>
+
+				<div th:if="${#fields.hasGlobalErrors()}">
+					<div th:each="err : ${#fields.globalErrors()}" th:text="${err}" class="error-message"></div>
+				</div>
+
+				<button type="submit">enviar</button>
+			</form>
+		</section>
+	</main>
+</body>
+</html>
