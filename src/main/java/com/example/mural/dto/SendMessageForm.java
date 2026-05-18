@@ -4,13 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 
 public class SendMessageForm {
 
-	@NotBlank(message = "o campo enviado por é obrigatório")
+	@NotBlank(message = "{sendMessageForm.from.notBlank}")
 	private String from;
 
-	@NotBlank(message = "o campo enviado para é obrigatório")
+	@NotBlank(message = "{sendMessageForm.to.notBlank}")
 	private String to;
 
-	@NotBlank(message = "o campo mensagem é obrigatório")
+	@NotBlank(message = "{sendMessageForm.message.notBlank}")
 	private String message;
 
 	public String getFrom() {

@@ -9,24 +9,24 @@
 <body>
 	<main class="page">
 		<section class="hero">
-			<h1>envie uma mensagem para o mural</h1>
+			<h1 th:text="#{post.title}">envie uma mensagem para o mural</h1>
 			<ul class="nav-links">
-				<li><a th:href="@{/}">home</a></li>
-				<li><a th:href="@{/mensagens}">ver mensagens</a></li>
+				<li><a th:href="@{/}" th:text="#{nav.home}">home</a></li>
+				<li><a th:href="@{/mensagens}" th:text="#{nav.viewMessages}">ver mensagens</a></li>
 			</ul>
 		</section>
 
 		<section class="panel">
 			<form th:action="@{/postar}" th:object="${sendMessageForm}" method="post">
-				<label for="from">enviado por:</label>
+				<label for="from" th:text="#{post.from.label}">enviado por:</label>
 				<input id="from" type="text" th:field="*{from}">
 				<div th:if="${#fields.hasErrors('from')}" th:errors="*{from}" class="error-message"></div>
 
-				<label for="to">enviado para:</label>
+				<label for="to" th:text="#{post.to.label}">enviado para:</label>
 				<input id="to" type="text" th:field="*{to}">
 				<div th:if="${#fields.hasErrors('to')}" th:errors="*{to}" class="error-message"></div>
 
-				<label for="message">mensagem:</label>
+				<label for="message" th:text="#{post.message.label}">mensagem:</label>
 				<textarea id="message" th:field="*{message}"></textarea>
 				<div th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error-message"></div>
 
@@ -34,7 +34,7 @@
 					<div th:each="err : ${#fields.globalErrors()}" th:text="${err}" class="error-message"></div>
 				</div>
 
-				<button type="submit">enviar</button>
+				<button type="submit" th:text="#{post.submit}">enviar</button>
 			</form>
 		</section>
 	</main>

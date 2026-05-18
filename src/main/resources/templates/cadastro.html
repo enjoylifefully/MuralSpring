@@ -9,10 +9,10 @@
 <body>
 	<main class="page">
 		<section class="hero">
-			<h1>novo usuário</h1>
-			<p>página reservada para o fluxo de cadastro previsto no exercício.</p>
+			<h1 th:text="#{cadastro.title}">novo usuário</h1>
+			<p th:text="#{cadastro.subtitle}">página reservada para o fluxo de cadastro previsto no exercício.</p>
 			<ul class="nav-links">
-				<li><a th:href="@{/}">home</a></li>
+				<li><a th:href="@{/}" th:text="#{nav.home}">home</a></li>
 			</ul>
 		</section>
 	</main>

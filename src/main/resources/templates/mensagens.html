@@ -9,11 +9,11 @@
 <body>
 	<main class="page">
 		<section class="hero">
-			<h1>mensagens</h1>
+			<h1 th:text="#{messages.title}">mensagens</h1>
 			<ul class="nav-links">
-				<li><a th:href="@{/}">home</a></li>
-				<li><a th:href="@{/postar}">postar uma nova mensagem</a></li>
-				<li><a th:href="@{/mensagens}">atualizar página</a></li>
+				<li><a th:href="@{/}" th:text="#{nav.home}">home</a></li>
+				<li><a th:href="@{/postar}" th:text="#{nav.postMessage}">postar uma nova mensagem</a></li>
+				<li><a th:href="@{/mensagens}" th:text="#{nav.refreshPage}">atualizar página</a></li>
 			</ul>
 		</section>
 
@@ -21,15 +21,15 @@
 			<div th:if="${success}" th:text="${success}" class="success-message"></div>
 
 			<div th:if="${#lists.isEmpty(messages)}" class="empty-state">
-				<p>sem mensagens.</p>
+				<p th:text="#{messages.empty}">sem mensagens.</p>
 			</div>
 
 			<div th:unless="${#lists.isEmpty(messages)}" class="message-list">
 				<div th:each="msg : ${messages}" class="message-card">
 					<div class="message-meta">
-						<strong>de:</strong> <span th:text="${msg.from()}"></span>
-						<strong>para:</strong> <span th:text="${msg.to()}"></span>
-						<strong>(em</strong> <span th:text="${msg.timestamp()}"></span><strong>)</strong>
+						<strong th:text="#{messages.from.label}">de:</strong> <span th:text="${msg.from()}"></span>
+						<strong th:text="#{messages.to.label}">para:</strong> <span th:text="${msg.to()}"></span>
+						<strong th:text="#{messages.at.label}">(em</strong> <span th:text="${msg.timestamp()}"></span><strong>)</strong>
 					</div>
 					<div th:text="${msg.message()}"></div>
 				</div>
